@@ -2,11 +2,15 @@ import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 import logger from "morgan";
+import mongoose from "mongoose";
 import { trim } from "./middleware/Trim.js";
 import { MidError } from "./middleware/ErrorMid.js";
 import { noteRt } from "./routes/noteRt.js";
 
 (async () => {
+    await mongoose.connect(process.env.MONGO_URI)
+        .then(() => console.log("MongoDB is now Connected!"))
+        .catch((error) => console.log(error));
     const app = express();
     app.use(helmet());
 
@@ -26,7 +30,7 @@ import { noteRt } from "./routes/noteRt.js";
     app.use(express.urlencoded({extended: false}));
     app.use(express.json());
     app.use(logger("dev"));
-    app.use(trim);
+    // app.use(trim);
     app.use("/api/notes", noteRt);
     
     // Error handling and Port
@@ -38,5 +42,6 @@ import { noteRt } from "./routes/noteRt.js";
         console.log("Press Ctrl + C to exit.");
     })
 })();
+
 
 

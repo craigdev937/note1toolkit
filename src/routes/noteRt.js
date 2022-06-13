@@ -1,8 +1,9 @@
 import express from "express";
-import { IndexHome } from "../controllers/noteCon.js";
+import { NOTE } from "../controllers/noteCon.js";
 
 export const noteRt = express.Router();
-    noteRt.get("/", IndexHome);
+    noteRt.post("/", NOTE.Create);
+    noteRt.get("/", NOTE.FetchAll);
 
 
 
