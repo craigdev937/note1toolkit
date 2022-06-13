@@ -30,7 +30,7 @@ import { noteRt } from "./routes/noteRt.js";
     app.use(express.urlencoded({extended: false}));
     app.use(express.json());
     app.use(logger("dev"));
-    // app.use(trim);
+    app.use(trim);
     app.use("/api/notes", noteRt);
     
     // Error handling and Port
