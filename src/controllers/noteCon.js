@@ -46,8 +46,7 @@ class NoteClass {
             await NoteModel.findByIdAndUpdate(id, {
                 title, first, last, age, info
             })
-            .then(() => res.status(200)
-            .json("The Note was Updated!"));
+            res.status(200).json("The Note was Updated!"));
         } catch (error) {
             res.status(500).json({msg: error.message});
             next(error);
