@@ -2,8 +2,8 @@ import { INote } from "../models/Interfaces";
 import { createApi, 
     fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// const URL = "https://note1toolkit.herokuapp.com/api/notes";
-const URL = "http://localhost:9000/api"
+const URL = "https://note1toolkit.herokuapp.com/api/notes";
+// const URL = "http://localhost:9000/api"
 export const NoteAPI = createApi({
     reducerPath: "NoteAPI",
     tagTypes: ["Note"],
