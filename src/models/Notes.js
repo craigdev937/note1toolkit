@@ -6,9 +6,11 @@ const NoteSchema = mongoose.Schema({
     last: { type: String, required: true },
     age: { type: Number, required: true },
     info: { type: String, required: true }
-}, { timestamps: true });
+});
 
 export const NoteModel = mongoose.model("Note", NoteSchema);
+// const doc = new mongoose.Model();
+// doc._id instanceof mongoose.Types.ObjectId;
 
 
 

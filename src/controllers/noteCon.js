@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { NoteModel } from "../models/Notes.js";
 
 class NoteClass {
@@ -40,13 +41,13 @@ class NoteClass {
     };
 
     Update = async (req, res, next) => {
-        try {
+        try {            
             const { id } = req.params;
             const { title, first, last, age, info } = req.body;
             await NoteModel.findByIdAndUpdate(id, {
                 title, first, last, age, info
             })
-            res.status(200).json("The Note was Updated!"));
+            res.status(200).json("The Note was Updated!");
         } catch (error) {
             res.status(500).json({msg: error.message});
             next(error);
