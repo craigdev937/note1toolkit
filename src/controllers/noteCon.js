@@ -41,6 +41,7 @@ class NoteClass {
     };
 
     Update = async (req, res, next) => {
+        if(!mongoose.Types.ObjectId.isValid(id)) return false;
         try {            
             const { id } = req.params;
             const { title, first, last, age, info } = req.body;

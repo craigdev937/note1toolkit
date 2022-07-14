@@ -2,8 +2,7 @@ import { INote } from "../models/Interfaces";
 import { createApi, 
     fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const URL = "https://note1toolkit.herokuapp.com/api/notes";
-// const URL = "http://localhost:9000/api"
+const URL = "https://note1toolkit.herokuapp.com/api";
 export const NoteAPI = createApi({
     reducerPath: "NoteAPI",
     tagTypes: ["Note"],
@@ -25,7 +24,7 @@ export const NoteAPI = createApi({
             }),
             invalidatesTags: ["Note"],
         }),
-        update: builder.mutation<INote, INote>({
+        update: builder.mutation<void, INote>({
             query: ({_id, ...payload}) => ({
                 url: `/notes/${_id}`,
                 method: "PUT",
